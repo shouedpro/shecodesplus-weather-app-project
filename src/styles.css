@@ -1,0 +1,87 @@
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 50px;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+section {
+  padding: auto 100px;
+}
+
+footer {
+  color: rgb(155, 155, 155);
+  font-family: monospace;
+  font-weight: 200;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.search {
+  margin-top: 80px;
+  padding: 20px 100px;
+}
+
+.mini-header {
+  color: rgb(155, 155, 155);
+  font-size: 12px;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.current-temp-right {
+  text-align: right;
+  margin-right: 0;
+}
+
+.current-weather-icon {
+  font-size: 100px;
+  text-align: right;
+}
+
+.current-temperature {
+  font-size: 90px;
+  font-weight: 750;
+}
+
+.current-high-low {
+  font-size: 18px;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.current-weather {
+  margin: 70px 0;
+  padding: 0 80px;
+}
+
+.rest-of-the-week {
+  display: block;
+  margin: 70px 0;
+  padding: 0 30px;
+}
+
+.card-title {
+  color: rgb(155, 155, 155);
+}
+
+.week-weather-icon {
+  font-size: 80px;
+  margin: 60px;
+  padding: 0;
+}
