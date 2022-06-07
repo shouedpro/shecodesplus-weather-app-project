@@ -21,10 +21,10 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <!--css-->
-    <link rel="stylesheet" href="src/styles.css" />
     <!--axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--css-->
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
 
   <body>
@@ -40,21 +40,21 @@
 <section class="current-weather">
 <div class="mini-header">
         CURRENT WEATHER | 
-    <span class="time" id="current-time">1:15</span>
+    <span class="time" id="current-time"></span>
 </div>
       <div class="row">
         <div class="col-8">
-          <h1 id="city-name">Cambridge</h1>
-          <h4 id="current-day">Monday</h4>
-          <h5 id="weather-description">Drizzle</h5>
+          <h1 id="city-name"></h1>
+          <h4 id="current-day"></h4>
+          <h5 class="weather-description" id="weather-description"></h5>
         </div>
 
         <div class="col-4 current-temp-right">
          <span class="current-weather-icon"> <i class="fa-solid fa-cloud-sun-rain">  </i></span>
         <span class="current-temperature" id="current-temperature">14</span> <span class="current-temperature-celsius"> °C | </span><span class="current-temperature-fahrenheit"> °F </span>
         <div class="current-high-low">
-          H: <span class="current-highest-temp" id="current-highest-temp">16</span>°C 
-          L: <span class="current-lowest-temp" id="current-lowest-temp">3</span>°C
+          H: <span class="current-highest-temp" id="current-highest-temp"></span>°C 
+          L: <span class="current-lowest-temp" id="current-lowest-temp"></span>°C
         </div>
       </div>
 </section>

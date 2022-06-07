@@ -44,6 +44,10 @@ footer {
   font-weight: 600;
 }
 
+.weather-description {
+  text-transform: capitalize;
+}
+
 .current-temp-right {
   text-align: right;
   margin-right: 0;

@@ -1,26 +1,31 @@
-let now = new Date();
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+function formatTime(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
 }
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+
+function formatDay(timestamp) {
+  let now = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  return `${day}`;
 }
-let currentTime = document.querySelector("#current-time");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let currentDay = document.querySelector("h4#current-day");
-currentTime.innerHTML = `${hours}:${minutes}`;
-currentDay.innerHTML = `${day}`;
 
 function showWeather(event) {
   event.preventDefault();
@@ -47,10 +52,15 @@ function updateTemp(response) {
   let currentTempHighest = document.querySelector("#current-highest-temp");
   let currentTempLowest = document.querySelector("#current-lowest-temp");
   let weatherDescription = document.querySelector("#weather-description");
+  // let localTime = document.querySelector("#current-time");
+  let currentDay = document.querySelector("h4#current-day");
   currentTemp.innerHTML = `${temperatureNowData}`;
   currentTempHighest.innerHTML = `${temperatureHighestData}`;
   currentTempLowest.innerHTML = `${temperatureLowestData}`;
   weatherDescription.innerHTML = `${weatherDescriptionData}`;
+  //localTime.innerHTML = formatTime(response.data.dt * 1000);
+  currentDay.innerHTML = formatDay(response.data.dt);
+  console.log(response);
 }
 
 function currentLocation() {
