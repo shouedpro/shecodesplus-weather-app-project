@@ -48,6 +48,14 @@ footer {
   padding: 20px 100px;
 }
 
+.current-location-btn :hover {
+  color: white;
+}
+
+.current-location-btn .active {
+  color: white;
+}
+
 .mini-header {
   color: rgb(155, 155, 155);
   font-size: 12px;
