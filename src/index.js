@@ -153,9 +153,7 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        ` <div class="col-sm-1 h-100 mx-auto">
-    <div class="card text-center" style="width: 15rem;">
-      <div class="card-body">
+        ` <div class="col-1 mx-auto">
         <h6 class="card-title weather-forecast-date">${formatForecastDays(
           forecastDay.dt
         )}</h6>
@@ -163,15 +161,13 @@ function displayForecast(response) {
           forecastDay.weather[0].icon
         }@2x.png" alt="week-weather-icon" class="week-weather-icon" id="weather-icon">
         <div class="weekHighLow">
-          H: <span class="week-highest-temp">${Math.round(
+          H: <span class="week-highest-temp"><small>${Math.round(
             forecastDay.temp.max
-          )}</span>°
-          L: <span class="week-lowest-temp">${Math.round(
+          )}</small></span>°
+          L: <span class="week-lowest-temp"><small>${Math.round(
             forecastDay.temp.min
-          )}</span>°
+          )}</small></span>°
         </div>
-      </div>
-    </div>
  </div>
 `;
     }

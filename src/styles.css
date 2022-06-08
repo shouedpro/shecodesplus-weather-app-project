@@ -1,6 +1,7 @@
 body {
   font-family: "Raleway", sans-serif;
-  margin: 50px;
+  margin: 100px;
+  background-color: #cef3fa;
 }
 
 h1 {
@@ -39,8 +40,14 @@ footer {
   color: rgb(155, 155, 155);
   font-family: monospace;
   font-weight: 200;
-  margin-top: 100px;
+  margin: 100px auto 50px auto;
   text-align: center;
+}
+
+.container {
+  border: 1px solid rgb(155, 155, 155);
+  border-radius: 14px;
+  background-color: #fbfeff;
 }
 
 .search {
@@ -59,11 +66,16 @@ footer {
 .mini-header {
   color: rgb(155, 155, 155);
   font-size: 12px;
+  padding-left: 30px;
 }
 
 .time {
   font-size: 12px;
   font-weight: 600;
+}
+
+.current-temp-left {
+  padding-left: 40px;
 }
 
 .weather-description {
@@ -122,18 +134,22 @@ footer {
   padding: 0 80px;
 }
 
-.rest-of-the-week {
+.weather-forecast {
   display: block;
   margin: 70px 0;
   padding: 0 30px;
 }
 
-.card-title {
+.weather-forecast-date {
   color: rgb(155, 155, 155);
+  text-align: center;
 }
 
 .week-weather-icon {
   font-size: 80px;
-  margin: 60px;
+  margin: 0 auto;
   padding: 0;
+}
+.weekHighLow {
+  text-align: center;
 }
