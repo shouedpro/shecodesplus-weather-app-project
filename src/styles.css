@@ -48,6 +48,9 @@ footer {
   text-transform: capitalize;
 }
 
+.wind-speed {
+}
+
 .current-temp-right {
   text-align: right;
   margin-right: 0;
@@ -79,7 +82,7 @@ footer {
 }
 
 .current-high-low {
-  font-size: 20px;
+  font-size: 16px;
   padding: 0 20px 0 210px;
   text-align: center;
 }
