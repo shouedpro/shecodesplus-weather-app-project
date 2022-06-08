@@ -55,9 +55,13 @@ function showWeather(event) {
 }
 
 function updateWeather(response) {
-  let temperatureNowData = Math.round(response.data.main.temp);
-  let temperatureHighestData = Math.round(response.data.main.temp_max);
-  let temperatureLowestData = Math.round(response.data.main.temp_min);
+  celsiusCurrentTemp = response.data.main.temp;
+  celsiusHighTemp = response.data.main.temp_max;
+  celsiusLowTemp = response.data.main.temp_min;
+
+  let currentTempData = Math.round(celsiusCurrentTemp);
+  let temperatureHighestData = Math.round(celsiusHighTemp);
+  let temperatureLowestData = Math.round(celsiusLowTemp);
   let weatherDescriptionData = response.data.weather[0].description;
   let humidityData = Math.round(response.data.main.humidity);
   let windSpeedData = Math.round(response.data.wind.speed);
@@ -65,7 +69,7 @@ function updateWeather(response) {
   document.querySelector("h1#city-name").innerHTML = response.data.name;
   document.querySelector(
     "#current-temperature"
-  ).innerHTML = `${temperatureNowData}`;
+  ).innerHTML = `${currentTempData}`;
   document.querySelector(
     "#current-highest-temp"
   ).innerHTML = `${temperatureHighestData}`;
@@ -91,8 +95,49 @@ function updateWeather(response) {
     );
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  let currentTempData = (celsiusCurrentTemp * 9) / 5 + 32;
+  let currentHighTempData = (celsiusHighTemp * 9) / 5 + 32;
+  let currentLowTempData = (celsiusLowTemp * 9) / 5 + 32;
+
+  fahrenheitBtn.classList.add("active");
+  celsiusBtn.classList.remove("active");
+
+  let fahrenheitValue = document.querySelector("#current-temperature");
+  let fahrenheitHighValue = document.querySelector("#current-highest-temp");
+  let fahrenheitLowValue = document.querySelector("#current-lowest-temp");
+  fahrenheitValue.innerHTML = `${Math.round(currentTempData)}`;
+  fahrenheitHighValue.innerHTML = `${Math.round(currentHighTempData)}`;
+  fahrenheitLowValue.innerHTML = `${Math.round(currentLowTempData)}`;
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+
+  celsiusBtn.classList.add("active");
+  fahrenheitBtn.classList.remove("active");
+
+  let celsiusValue = document.querySelector("#current-temperature");
+  let celsiusHighValue = document.querySelector("#current-highest-temp");
+  let celsiusLowValue = document.querySelector("#current-lowest-temp");
+  celsiusValue.innerHTML = `${Math.round(celsiusHighTemp)}`;
+  celsiusHighValue.innerHTML = `${Math.round(celsiusHighTemp)}`;
+  celsiusLowValue.innerHTML = `${Math.round(celsiusLowTemp)}`;
+}
+
+let celsiusCurrentTemp = null;
+let celsiusHighTemp = null;
+let celsiusLowTemp = null;
+
 let searchButton = document.querySelector("#search-city-form");
 searchButton.addEventListener("submit", showWeather);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", currentLocation);
+
+let fahrenheitBtn = document.querySelector("#fahrenheit-btn");
+fahrenheitBtn.addEventListener("click", showFahrenheit);
+
+let celsiusBtn = document.querySelector("#celsius-btn");
+celsiusBtn.addEventListener("click", showCelsius);

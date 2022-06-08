@@ -21,6 +21,20 @@ section {
   padding: auto 100px;
 }
 
+a {
+  color: inherit;
+  color: rgb(155, 155, 155);
+  text-decoration: none;
+}
+
+a :hover {
+  color: inherit;
+  color: #0ccaf0;
+  font-size: 25px;
+  font-weight: 600;
+  top: -34px;
+}
+
 footer {
   color: rgb(155, 155, 155);
   font-family: monospace;
@@ -48,27 +62,35 @@ footer {
   text-transform: capitalize;
 }
 
-.wind-speed {
-}
-
 .current-temp-right {
   text-align: right;
   margin-right: 0;
 }
 
-.current-temperature-celsius {
+.degree-btn {
   position: relative;
   font-size: 25px;
   font-weight: 600;
   top: -34px;
+  text-decoration: none;
 }
 
-.current-temperature-fahrenheit {
-  position: relative;
+.degree-btn :hover {
+  color: #0ccaf0;
   font-size: 25px;
   font-weight: 600;
   top: -34px;
-  color: rgb(155, 155, 155);
+  text-decoration: none;
+}
+
+.degree-btn .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.degree-btn .active :hover {
+  text-decoration: none;
 }
 
 .current-weather-icon {
