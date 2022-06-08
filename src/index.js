@@ -62,13 +62,9 @@ function getForecast(coord) {
 }
 
 function updateWeather(response) {
-  celsiusCurrentTemp = response.data.main.temp;
-  celsiusHighTemp = response.data.main.temp_max;
-  celsiusLowTemp = response.data.main.temp_min;
-
-  let currentTempData = Math.round(celsiusCurrentTemp);
-  let temperatureHighestData = Math.round(celsiusHighTemp);
-  let temperatureLowestData = Math.round(celsiusLowTemp);
+  let currentTempData = Math.round(response.data.main.temp);
+  let temperatureHighestData = Math.round(response.data.main.temp_max);
+  let temperatureLowestData = Math.round(response.data.main.temp_min);
   let weatherDescriptionData = response.data.weather[0].description;
   let humidityData = Math.round(response.data.main.humidity);
   let windSpeedData = Math.round(response.data.wind.speed);
@@ -102,37 +98,6 @@ function updateWeather(response) {
     );
 
   getForecast(response.data.coord);
-}
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let currentTempData = (celsiusCurrentTemp * 9) / 5 + 32;
-  let currentHighTempData = (celsiusHighTemp * 9) / 5 + 32;
-  let currentLowTempData = (celsiusLowTemp * 9) / 5 + 32;
-
-  fahrenheitBtn.classList.add("active");
-  celsiusBtn.classList.remove("active");
-
-  let fahrenheitValue = document.querySelector("#current-temperature");
-  let fahrenheitHighValue = document.querySelector("#current-highest-temp");
-  let fahrenheitLowValue = document.querySelector("#current-lowest-temp");
-  fahrenheitValue.innerHTML = `${Math.round(currentTempData)}`;
-  fahrenheitHighValue.innerHTML = `${Math.round(currentHighTempData)}`;
-  fahrenheitLowValue.innerHTML = `${Math.round(currentLowTempData)}`;
-}
-
-function showCelsius(event) {
-  event.preventDefault();
-
-  celsiusBtn.classList.add("active");
-  fahrenheitBtn.classList.remove("active");
-
-  let celsiusValue = document.querySelector("#current-temperature");
-  let celsiusHighValue = document.querySelector("#current-highest-temp");
-  let celsiusLowValue = document.querySelector("#current-lowest-temp");
-  celsiusValue.innerHTML = `${Math.round(celsiusHighTemp)}`;
-  celsiusHighValue.innerHTML = `${Math.round(celsiusHighTemp)}`;
-  celsiusLowValue.innerHTML = `${Math.round(celsiusLowTemp)}`;
 }
 
 function formatForecastDays(timestamp) {
@@ -177,18 +142,8 @@ function displayForecast(response) {
   forecastData.innerHTML = forecastHTML;
 }
 
-let celsiusCurrentTemp = null;
-let celsiusHighTemp = null;
-let celsiusLowTemp = null;
-
 let searchButton = document.querySelector("#search-city-form");
 searchButton.addEventListener("submit", showWeather);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", currentLocation);
-
-let fahrenheitBtn = document.querySelector("#fahrenheit-btn");
-fahrenheitBtn.addEventListener("click", showFahrenheit);
-
-let celsiusBtn = document.querySelector("#celsius-btn");
-celsiusBtn.addEventListener("click", showCelsius);
