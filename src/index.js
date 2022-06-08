@@ -52,6 +52,7 @@ function updateTemp(response) {
   let currentTempHighest = document.querySelector("#current-highest-temp");
   let currentTempLowest = document.querySelector("#current-lowest-temp");
   let weatherDescription = document.querySelector("#weather-description");
+  let weathericonData = document.querySelector("#weather-icon");
   // let localTime = document.querySelector("#current-time");
   let currentDay = document.querySelector("h4#current-day");
   currentTemp.innerHTML = `${temperatureNowData}`;
@@ -60,6 +61,10 @@ function updateTemp(response) {
   weatherDescription.innerHTML = `${weatherDescriptionData}`;
   //localTime.innerHTML = formatTime(response.data.dt * 1000);
   currentDay.innerHTML = formatDay(response.data.dt);
+  weathericonData.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   console.log(response);
 }
 
